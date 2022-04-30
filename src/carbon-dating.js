@@ -18,8 +18,9 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 function dateSample(sampleActivity) {
-  const currentActivity = Namber(sampleActivity);
-  if ((typeof sampleActivity != Namber) || (sampleActivity <= 0)) { return false }
+  if ((typeof sampleActivity != 'string') || (sampleActivity <= 0)) { return false }
+  const currentActivity = +sampleActivity;
+  if (currentActivity > MODERN_ACTIVITY || isNaN(currentActivity)) { return false }
   if (currentActivity > 0) {
     return Math.ceil(Math.log(MODERN_ACTIVITY / currentActivity) / (0.693 / HALF_LIFE_PERIOD));
   } else {
