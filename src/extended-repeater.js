@@ -18,8 +18,12 @@ const { NotImplementedError } = require('../extensions/index.js');
 
 
 function repeater(str, options) {
-  const { repeatTimes = 1, separator = "+", addition = '', additionRepeatTimes = 1, additionSeparator = "|" } = options;
-  return (str + (addition.split(additionSeparator)) * additionRepeatTimes) * repeatTimes
+  const {
+    repeatTimes = 1,
+    separator = "+",
+    addition = '', additionRepeatTimes = 1, additionSeparator = "|" } = options;
+  if (!options.separator) { } ...
+
 }
 console.log(repeater());
 
